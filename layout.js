@@ -500,3 +500,39 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener('pageshow', () => {
   document.body.style.opacity = '1';
 });
+// ─── 頁首背景影片：確認真的開始播放才顯示 ───
+// 搭配 style.css：影片預設透明，這裡透過 YouTube IFrame API 監聽播放狀態，
+// 進入「播放中」才加上 .is-playing 淡入。手機擋自動播放時就維持綠色底，不會露出 YouTube 播放鍵。
+(function () {
+  var frames = Array.prototype.slice.call(document.querySelectorAll('.yt-bg-wrapper iframe'));
+  if (!frames.length) return;
+
+  frames.forEach(function (f) {
+    if (f.src.indexOf('enablejsapi=1') === -1) {
+      f.src = f.src + (f.src.indexOf('?') === -1 ? '?' : '&') + 'enablejsapi=1&origin=' + encodeURIComponent(location.origin);
+    }
+  });
+
+  function attach() {
+    frames.forEach(function (f) {
+      var wrapper = f.closest('.yt-bg-wrapper');
+      try {
+        new YT.Player(f, {
+          events: {
+            onReady: function (e) { try { e.target.mute(); e.target.playVideo(); } catch (_) {} },
+            onStateChange: function (e) {
+              if (e.data === YT.PlayerState.PLAYING) wrapper.classList.add('is-playing');
+            }
+          }
+        });
+      } catch (_) {}
+    });
+  }
+
+  var prev = window.onYouTubeIframeAPIReady;
+  window.onYouTubeIframeAPIReady = function () { if (prev) prev(); attach(); };
+  if (window.YT && window.YT.Player) { attach(); return; }
+  var s = document.createElement('script');
+  s.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(s);
+})();
