@@ -197,3 +197,46 @@ html:lang(en) .nav-link, html:lang(de) .nav-link { font-size: 18.6px; }
      手機板縮小到 80px，維持「LOGO 稍微超出導覽列」的效果，但不會再壓到下方內容。 */
   .logo-img { height: 80px !important; }
 }
+
+/* ─── 頁首背景影片（全站共用）───
+   手機（尤其 iPhone 低耗電模式、省流量模式）常常會擋掉 YouTube 自動播放，
+   這時 YouTube 會顯示影片標題列 + 紅色播放鍵 + 縮圖文字，看起來像網站壞掉。
+   做法：影片先完全透明，底下墊品牌苔蘚綠漸層；等 layout.js 偵測到影片「真的開始播放」
+   才淡入。播不了的裝置就只會看到乾淨的綠色背景，不會出現 YouTube 介面。 */
+.yt-bg-wrapper {
+  background: radial-gradient(ellipse at 50% 30%, #4f6b3a 0%, #2d4920 55%, #1c2e14 100%);
+}
+.yt-bg-wrapper iframe {
+  opacity: 0 !important;
+  transition: opacity 1.2s ease;
+}
+.yt-bg-wrapper.is-playing iframe {
+  opacity: 1 !important;
+}
+
+@media (max-width: 640px) {
+  /* 影片放大 1.4 倍，把 YouTube 開頭會短暫出現的標題列／浮水印推到畫面外 */
+  .yt-bg-wrapper iframe {
+    transform: translate(-50%, -50%) scale(1.4) !important;
+  }
+
+  /* 各頁頁首原本是固定高度（60~70vh）＋ overflow:hidden，
+     手機上標題字放大後會換成 2~3 行，方框高度超過頁首就被上下切掉（例如「計畫主持人」）。
+     改成「最少 65vh、內容多就自動長高」，方框永遠完整顯示。 */
+  section:has(> .hero-shell) {
+    height: auto !important;
+    min-height: 65vh;
+    padding-top: 130px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* 頁首方框裡的大標題：92px + tracking-widest 會讓 5 個字的「計畫主持人」擠成 3 行。
+     改成跟螢幕寬度等比（約一行 3 個字），字距收一點，維持醒目但不會斷成 3 行。 */
+  .hero-shell h1.text-h1 {
+    font-size: min(92px, 19vw) !important;
+    letter-spacing: 0.04em !important;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .hero-shell { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+}
