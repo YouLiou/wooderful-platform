@@ -163,6 +163,17 @@
     @keyframes wd-spin {
       to { transform: rotate(360deg); }
     }
+
+    /* 清單欄位（照片、教案頁面圖片、動態列表…）原本會顯示兩次同樣的名稱：
+       上面一個灰色小標籤，下面清單列又寫一次「0 照片」。這裡把上面那個重複的小標籤藏起來，
+       只留清單列（有數量、展開箭頭、新增按鈕），畫面比較乾淨。
+       只針對「有新增按鈕的清單」，材料清單／製作步驟這種純文字清單沒有清單列，標籤照常顯示。 */
+    [aria-label="list field"]:has([class*="TopBarContainer"]) > [class*="ControlTopbar"] > label {
+      display: none;
+    }
+    [aria-label="list field"]:has([class*="TopBarContainer"]) > [class*="ControlTopbar"] {
+      min-height: 0;
+    }
   </style>
 </head>
 <body>
