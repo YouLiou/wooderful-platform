@@ -210,6 +210,7 @@ var LessonsExtraPreview = createClass({
       return h('div', { style: { padding: '24px', fontFamily: 'sans-serif', color: '#999' } }, '目前沒有任何內容');
     }
 
+    var titleZh = item.get('title_zh') || '（尚未填寫教案名稱）';
     var summaryZh = item.getIn(['summary', 'zh']) || '';
     var grade = item.get('grade') || '';
     var duration = item.get('duration') || '';
@@ -217,7 +218,8 @@ var LessonsExtraPreview = createClass({
     var images = item.get('images'); // 圖片清單（活動花絮照片），第一張當作縮圖
     var pageImages = item.get('page_images'); // PNG 圖片頁專用：教案內容本身的頁面截圖
     var legacyImage = item.get('image'); // 舊格式：單張圖片欄位（相容用）
-    var coverImage = (images && images.size && images.get(0).get('src'))
+    var coverImage = item.get('cover_image')
+      || (images && images.size && images.get(0).get('src'))
       || (pageImages && pageImages.size && pageImages.get(0).get('src'))
       || legacyImage || '';
     var materials = item.get('materials');
@@ -341,7 +343,8 @@ var LessonsExtraPreview = createClass({
   },
 });
 
-CMS.registerPreviewTemplate('lessons_extra', LessonsExtraPreview);
+CMS.registerPreviewTemplate('lessons_images', LessonsExtraPreview);
+CMS.registerPreviewTemplate('lessons_html', LessonsExtraPreview);
 
 /* ── 「計畫主持人（頁面內容）」：原本 8 個分頁整合成一份大檔案，現在已經拆成 8 個各自獨立的檔案
    （director-header.json／director-honors.json／director-education.json／director-exchange.json／
