@@ -70,6 +70,7 @@ collections:
                 name: "title_intl"
                 widget: "object"
                 collapsed: true
+                summary: "{{fields.en}}"
                 required: false
                 fields:
                   - { label: "英文", name: "en", widget: "string", required: false }
@@ -81,6 +82,7 @@ collections:
                 name: "desc_intl"
                 widget: "object"
                 collapsed: true
+                summary: "{{fields.en}}"
                 required: false
                 fields:
                   - { label: "英文", name: "en", widget: "text", required: false }
@@ -115,6 +117,7 @@ collections:
                 name: "title_intl"
                 widget: "object"
                 collapsed: true
+                summary: "{{fields.en}}"
                 required: false
                 fields:
                   - { label: "英文", name: "en", widget: "string", required: false }
@@ -126,6 +129,7 @@ collections:
                 name: "desc_intl"
                 widget: "object"
                 collapsed: true
+                summary: "{{fields.en}}"
                 required: false
                 fields:
                   - { label: "英文", name: "en", widget: "text", required: false }
@@ -160,6 +164,7 @@ collections:
                 name: "title_intl"
                 widget: "object"
                 collapsed: true
+                summary: "{{fields.en}}"
                 required: false
                 fields:
                   - { label: "英文", name: "en", widget: "string", required: false }
@@ -171,6 +176,7 @@ collections:
                 name: "desc_intl"
                 widget: "object"
                 collapsed: true
+                summary: "{{fields.en}}"
                 required: false
                 fields:
                   - { label: "英文", name: "en", widget: "text", required: false }
@@ -205,6 +211,7 @@ collections:
                 name: "title_intl"
                 widget: "object"
                 collapsed: true
+                summary: "{{fields.en}}"
                 required: false
                 fields:
                   - { label: "英文", name: "en", widget: "string", required: false }
@@ -216,6 +223,7 @@ collections:
                 name: "desc_intl"
                 widget: "object"
                 collapsed: true
+                summary: "{{fields.en}}"
                 required: false
                 fields:
                   - { label: "英文", name: "en", widget: "text", required: false }
@@ -314,6 +322,7 @@ collections:
                 name: "desc_intl"
                 widget: "object"
                 collapsed: true
+                summary: "{{fields.en}}"
                 required: false
                 fields:
                   - { label: "英文", name: "en", widget: "text", required: false }
@@ -370,6 +379,7 @@ collections:
                 name: "desc_intl"
                 widget: "object"
                 collapsed: true
+                summary: "{{fields.en}}"
                 required: false
                 fields:
                   - { label: "英文", name: "en", widget: "text", required: false }
@@ -388,6 +398,7 @@ collections:
                 name: "desc_intl"
                 widget: "object"
                 collapsed: true
+                summary: "{{fields.en}}"
                 required: false
                 fields:
                   - { label: "英文", name: "en", widget: "text", required: false }
@@ -496,6 +507,7 @@ collections:
         name: "summary"
         widget: "object"
         collapsed: true
+        summary: "{{fields.zh}}"
         required: false
         fields:
           - { label: "中文", name: "zh", widget: "text", required: false }
@@ -582,6 +594,7 @@ collections:
         name: "summary"
         widget: "object"
         collapsed: true
+        summary: "{{fields.zh}}"
         required: false
         fields:
           - { label: "中文", name: "zh", widget: "text", required: false }
@@ -606,6 +619,7 @@ collections:
         name: "objectives"
         widget: "object"
         collapsed: true
+        summary: "{{fields.zh}}"
         required: false
         fields:
           - { label: "中文", name: "zh", widget: "text", required: false }
