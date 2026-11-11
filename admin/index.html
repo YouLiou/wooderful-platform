@@ -164,16 +164,110 @@
       to { transform: rotate(360deg); }
     }
 
-    /* 清單欄位（照片、教案頁面圖片、動態列表…）原本會顯示兩次同樣的名稱：
-       上面一個灰色小標籤，下面清單列又寫一次「0 照片」。這裡把上面那個重複的小標籤藏起來，
-       只留清單列（有數量、展開箭頭、新增按鈕），畫面比較乾淨。
-       只針對「有新增按鈕的清單」，材料清單／製作步驟這種純文字清單沒有清單列，標籤照常顯示。 */
-    [aria-label="list field"]:has([class*="TopBarContainer"]) > [class*="ControlTopbar"] > label {
-      display: none;
+    /* ============================================================
+       編輯畫面版面（2026-11 重新設計）
+       每個欄位是一張卡片，順序固定「欄位名稱 → 說明 → 填寫區」，
+       相關欄位用小節標題分組（① 基本資料…），必填／選填用小標籤表示。
+       選取器：Decap 元件的 class 會帶元件名稱（CC、FieldLabel…），
+       用 [class*="名稱"] 比對；<label for="欄位名-field-N"> 用來指定特定欄位。
+       ============================================================ */
+    #nc-root [class*="ControlPaneContainer"]:has(> [class*="-ControlContainer "]) { background: #f6f3ec !important; padding: 8px 36px 120px !important; }
+
+    /* 欄位內順序：名稱 → 說明 → 填寫區 */
+    #nc-root [class*="-ControlContainer "] { display: flex !important; flex-direction: column !important; }
+    #nc-root [class*="-ControlContainer "] > * { order: 3; }
+    #nc-root [class*="-ControlContainer "] > [class*="ControlTopbar"] { order: 1; justify-content: flex-start !important; }
+    #nc-root [class*="-ControlContainer "] > [class*="ControlHint"] { order: 2; }
+
+    /* 第一層欄位＝白色卡片 */
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "] {
+      position: relative; background: #fff !important; border: 1px solid #e8e2d6 !important; border-radius: 14px !important;
+      padding: 18px 22px 20px !important; margin: 14px 0 0 !important; box-shadow: 0 1px 2px rgba(61, 43, 32, .04);
     }
-    [aria-label="list field"]:has([class*="TopBarContainer"]) > [class*="ControlTopbar"] {
-      min-height: 0;
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:first-child { margin-top: 24px !important; }
+
+    /* 欄位名稱＋必填／選填小標籤 */
+    #nc-root [class*="FieldLabel"] {
+      all: unset; display: inline-flex !important; align-items: center; gap: 8px; width: auto !important;
+      font-size: 15px !important; font-weight: 700 !important; color: #3d2b20 !important;
+      background: none !important; border: none !important; padding: 0 !important; margin: 0 0 4px !important;
     }
+    #nc-root [class*="FieldLabel"] > span {
+      font-size: 11px !important; font-weight: 500 !important; color: #8a7c6c !important; background: #f2eee6 !important;
+      border-radius: 999px; padding: 2px 9px; text-transform: none !important; white-space: nowrap;
+    }
+    #nc-root [class*="FieldLabel"]::after { content: none !important; }
+    #nc-root [class*="FieldLabel"]:not(:has(span))::after {
+      content: "必填" !important; position: static !important; display: inline-block !important; width: auto !important; height: auto !important;
+      font-size: 11px; font-weight: 600; color: #b4533a; background: #fbeae4 !important; border: none !important;
+      border-radius: 999px; padding: 2px 9px; white-space: nowrap; flex: none;
+    }
+    #nc-root [class*="ControlHint"] { font-size: 13px !important; line-height: 1.65 !important; color: #8a7c6c !important; margin: 0 0 12px !important; padding: 0 !important; }
+
+    /* 第二層（清單／多語區塊裡面）的欄位 */
+    #nc-root [class*="-ControlContainer "] [class*="-ControlContainer "] { margin-top: 14px !important; }
+    #nc-root [class*="-ControlContainer "] [class*="-ControlContainer "] [class*="FieldLabel"] { font-size: 13.5px !important; color: #5c4a3c !important; }
+
+    /* 小節標題 */
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:is(
+      :has(> [class*="ControlTopbar"] > label[for^="title_zh-field"]), :has(> [class*="ControlTopbar"] > label[for^="cover_image-field"]),
+      :has(> [class*="ControlTopbar"] > label[for^="page_images-field"]), :has(> [class*="ControlTopbar"] > label[for^="images-field"]),
+      :has(> [class*="ControlTopbar"] > label[for^="grade-field"]), :has(> [class*="ControlTopbar"] > label[for^="objectives-field"])
+    ) { margin-top: 58px !important; }
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:is(
+      :has(> [class*="ControlTopbar"] > label[for^="title_zh-field"]), :has(> [class*="ControlTopbar"] > label[for^="cover_image-field"]),
+      :has(> [class*="ControlTopbar"] > label[for^="page_images-field"]), :has(> [class*="ControlTopbar"] > label[for^="images-field"]),
+      :has(> [class*="ControlTopbar"] > label[for^="grade-field"]), :has(> [class*="ControlTopbar"] > label[for^="objectives-field"])
+    )::before {
+      position: absolute; top: -34px; left: 2px; font-family: "Noto Serif TC", serif !important;
+      font-size: 16px; font-weight: 700; color: #2D4920; letter-spacing: .06em;
+    }
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:has(> [class*="ControlTopbar"] > label[for^="title_zh-field"])::before    { content: "① 基本資料"; }
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:has(> [class*="ControlTopbar"] > label[for^="cover_image-field"])::before { content: "② 封面與簡介"; }
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:has(> [class*="ControlTopbar"] > label[for^="page_images-field"])::before { content: "③ 教案截圖（四種語言）"; }
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:has(> [class*="ControlTopbar"] > label[for^="grade-field"])::before       { content: "③ 教學資訊"; }
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:has(> [class*="ControlTopbar"] > label[for^="objectives-field"])::before  { content: "④ 教案內容"; }
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:has(> [class*="ControlTopbar"] > label[for^="images-field"])::before      { content: "活動照片"; }
+
+    /* 並排：英／日／德文名稱一列三格、教學資訊一列兩格 */
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:is(
+      :has(> [class*="ControlTopbar"] > label[for^="title_en-field"]), :has(> [class*="ControlTopbar"] > label[for^="title_ja-field"]), :has(> [class*="ControlTopbar"] > label[for^="title_de-field"])
+    ) { display: inline-flex !important; vertical-align: top; width: calc((100% - 24px) / 3) !important; box-sizing: border-box; }
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:is(
+      :has(> [class*="ControlTopbar"] > label[for^="title_en-field"]), :has(> [class*="ControlTopbar"] > label[for^="title_ja-field"])
+    ) { margin-right: 12px !important; }
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:is(
+      :has(> [class*="ControlTopbar"] > label[for^="grade-field"]), :has(> [class*="ControlTopbar"] > label[for^="duration-field"]),
+      :has(> [class*="ControlTopbar"] > label[for^="group_size-field"]), :has(> [class*="ControlTopbar"] > label[for^="subject-field"])
+    ) { display: inline-flex !important; vertical-align: top; width: calc((100% - 12px) / 2) !important; box-sizing: border-box; }
+    #nc-root [class*="ControlPaneContainer"] > [class*="-ControlContainer "]:is(
+      :has(> [class*="ControlTopbar"] > label[for^="grade-field"]), :has(> [class*="ControlTopbar"] > label[for^="group_size-field"])
+    ) { margin-right: 12px !important; }
+
+    /* 清單：名稱只在上面的欄位名稱出現一次；清單列只留收合箭頭＋「新增」按鈕 */
+    #nc-root [class*="TopBarContainer"] { background: transparent !important; margin: 0 !important; padding: 0 0 10px !important; }
+    #nc-root [class*="-ControlContainer "] > div:has(> [class*="TopBarContainer"] > [class*="AddButton"]) { border: none !important; padding: 0 !important; background: transparent !important; }
+    #nc-root [class*="-ControlContainer "] > div > [class*="TopBarContainer"] > [class*="ExpandButtonContainer"]:has(~ [class*="AddButton"]) { font-size: 0 !important; }
+    #nc-root [class*="AddButton"] {
+      background: #fff !important; color: #2D4920 !important; border: 1.5px dashed #9bb38a !important; border-radius: 10px !important;
+      padding: 8px 16px !important; font-size: 14px !important; font-weight: 600 !important; box-shadow: none !important;
+    }
+    #nc-root [class*="AddButton"]:hover { background: #f1f6ec !important; border-style: solid !important; }
+    #nc-root [class*="SortableListItem"] {
+      background: #fbfaf6 !important; border: 1px solid #ece6da !important; border-radius: 12px !important;
+      margin: 0 0 10px !important; padding: 0 16px 14px !important; box-shadow: none !important;
+    }
+    #nc-root [class*="StyledListItemTopBar"] { background: transparent !important; margin: 0 -16px !important; border-bottom: 1px solid #ece6da; border-radius: 12px 12px 0 0 !important; }
+    #nc-root [class*="NestedObjectLabel"] { font-size: 14px !important; color: #5c4a3c !important; padding: 10px 0 0 !important; border: none !important; background: transparent !important; }
+
+    /* 多語收合區塊：收合時顯示已填內容 */
+    #nc-root [class*="-ControlContainer "] > div > [class*="TopBarContainer"] > [class*="ExpandButtonContainer"]:not(:has(~ [class*="AddButton"])) { font-size: 13.5px !important; color: #5c4a3c !important; font-weight: 500 !important; }
+    #nc-root [class*="-ControlContainer "] > div:has(> [class*="TopBarContainer"] > [class*="ExpandButtonContainer"]:not(:has(~ [class*="AddButton"]))) { background: #fbfaf6; border: 1px solid #ece6da !important; border-radius: 10px; padding: 8px 14px !important; }
+
+    /* 圖片欄位 */
+    #nc-root [class*="ImageWrapper"] { width: 140px !important; height: 140px !important; border-radius: 10px !important; border: 1px solid #ece6da !important; overflow: hidden; margin-bottom: 10px !important; }
+    #nc-root [class*="StyledImage"] { width: 100% !important; height: 100% !important; object-fit: contain !important; }
+    #nc-root [class*="FileWidgetButton"] { display: inline-block !important; margin: 0 8px 0 0 !important; border-radius: 8px !important; font-size: 13px !important; padding: 6px 14px !important; }
   </style>
 </head>
 <body>
