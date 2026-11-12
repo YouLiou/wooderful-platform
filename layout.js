@@ -12,13 +12,13 @@
 
 const navbarHTML = `
   <nav id="navbar">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
       <div class="flex items-center justify-between h-[90px]">
         <a href="index.html" class="flex items-center transition-transform hover:scale-105">
-          <img src="LOGO-WOOD.png" alt="木育玩具設計" class="logo-img h-[150px] w-auto drop-shadow-sm">
+          <img src="LOGO-WOOD-nav.png" alt="木育玩具設計" class="logo-img h-[84px] w-auto flex-shrink-0 drop-shadow-sm">
         </a>
-        <div class="hidden lg:flex items-center gap-8">
-          <ul class="flex items-center gap-8">
+        <div class="hidden xl:flex items-center gap-7">
+          <ul class="flex items-center gap-7">
             <li><a href="director.html" class="nav-link text-body" data-en="Director" data-ja="研究代表者" data-de="Projektleiter">計畫主持人</a></li>
             <li><a href="bamboo-play.html" class="nav-link text-body" data-en="Bamboo Learning &amp; Joy" data-ja="竹育楽" data-de="Bamboo Learning &amp; Joy">竹育樂</a></li>
             <li><a href="partners.html" class="nav-link text-body" data-en="Partners" data-ja="パートナー" data-de="Partner">合作夥伴</a></li>
@@ -56,13 +56,13 @@ const navbarHTML = `
           </div>
         </div>
 
-        <button id="mobileToggle" class="mobile-toggle lg:hidden" aria-label="開啟選單">
+        <button id="mobileToggle" class="mobile-toggle xl:hidden" aria-label="開啟選單">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
 
-    <div id="mobilePanel" class="mobile-panel lg:hidden">
+    <div id="mobilePanel" class="mobile-panel xl:hidden">
       <ul class="px-6 py-4 text-body font-semibold">
         <li class="border-b border-stone-200/60"><a href="director.html" class="block py-4" data-en="Director" data-ja="研究代表者" data-de="Projektleiter">計畫主持人</a></li>
         <li class="border-b border-stone-200/60"><a href="bamboo-play.html" class="block py-4" data-en="Bamboo Learning &amp; Joy" data-ja="竹育楽" data-de="Bamboo Learning &amp; Joy">竹育樂</a></li>
