@@ -62,6 +62,7 @@ collections:
           - name: "items"
             label: "動態列表"
             widget: "list"
+            add_to_top: true
             label_singular: "一則動態"
             summary: "{{fields.date_label}} - {{fields.title_zh}}"
             fields:
@@ -110,6 +111,7 @@ collections:
           - name: "items"
             label: "動態列表"
             widget: "list"
+            add_to_top: true
             label_singular: "一則動態"
             summary: "{{fields.date_label}} - {{fields.title_zh}}"
             fields:
@@ -158,6 +160,7 @@ collections:
           - name: "items"
             label: "動態列表"
             widget: "list"
+            add_to_top: true
             label_singular: "一則動態"
             summary: "{{fields.date_label}} - {{fields.title_zh}}"
             fields:
@@ -206,6 +209,7 @@ collections:
           - name: "items"
             label: "動態列表"
             widget: "list"
+            add_to_top: true
             label_singular: "一則動態"
             summary: "{{fields.date_label}} - {{fields.title_zh}}"
             fields:
