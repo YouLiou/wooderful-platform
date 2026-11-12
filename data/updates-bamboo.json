@@ -4,31 +4,66 @@
       "images": [
         {
           "src": "images/updates/螢幕擷取畫面-2026-11-12-233717.png",
-          "caption": " 演講海報與講者"
+          "caption": "演講海報與講者",
+          "caption_intl": {
+            "en": "Event poster and speaker",
+            "ja": "講演ポスターと講師",
+            "de": "Veranstaltungsplakat und Referent"
+          }
         },
         {
           "src": "images/updates/螢幕擷取畫面-2026-11-12-233730.png",
-          "caption": "講師現場指導教學"
+          "caption": "講師現場指導教學",
+          "caption_intl": {
+            "en": "Hands-on guidance from the instructor",
+            "ja": "講師による実技指導",
+            "de": "Praktische Anleitung durch den Dozenten"
+          }
         },
         {
           "caption": "講師現場教學",
-          "src": "images/updates/螢幕擷取畫面-2026-11-12-233739.png"
+          "src": "images/updates/螢幕擷取畫面-2026-11-12-233739.png",
+          "caption_intl": {
+            "en": "Live demonstration by the instructor",
+            "ja": "講師による実演",
+            "de": "Vorführung durch den Dozenten"
+          }
         },
         {
           "src": "images/updates/螢幕擷取畫面-2026-11-12-233749.png",
-          "caption": "講師現場教學"
+          "caption": "講師現場教學",
+          "caption_intl": {
+            "en": "Live demonstration by the instructor",
+            "ja": "講師による実演",
+            "de": "Vorführung durch den Dozenten"
+          }
         },
         {
           "src": "images/updates/螢幕擷取畫面-2026-11-12-233834.png",
-          "caption": "手機+AI調音"
+          "caption": "手機+AI調音",
+          "caption_intl": {
+            "en": "Tuning with a smartphone and AI",
+            "ja": "スマートフォンとAIを使った調律",
+            "de": "Stimmen mit Smartphone und KI"
+          }
         },
         {
           "src": "images/updates/螢幕擷取畫面-2026-11-12-233841.png",
-          "caption": "教案完成品"
+          "caption": "教案完成品",
+          "caption_intl": {
+            "en": "Completed lesson project",
+            "ja": "授業で制作した完成作品",
+            "de": "Fertiges Werk aus der Unterrichtseinheit"
+          }
         },
         {
           "caption": "製作完成大合照",
-          "src": "images/updates/螢幕擷取畫面-2026-11-12-233818.png"
+          "src": "images/updates/螢幕擷取畫面-2026-11-12-233818.png",
+          "caption_intl": {
+            "en": "Group photo with the completed instruments",
+            "ja": "完成した楽器を手にした集合写真",
+            "de": "Gruppenfoto mit den fertiggestellten Instrumenten"
+          }
         }
       ],
       "sort_date": "2026-10-18",

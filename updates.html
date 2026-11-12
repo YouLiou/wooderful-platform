@@ -514,7 +514,12 @@ document.addEventListener('DOMContentLoaded', () => {
           ? `<div class="grid ${gridColsClass} gap-4">${images.map((img) => `
             <div class="activity-photo-cell">
               <img src="${img.src}" alt="">
-              ${img.caption ? `<div class="activity-photo-caption">${img.caption}</div>` : ''}
+              ${img.caption ? (() => {
+                // 圖片說明四語：英／日／德文沒填時，切換語言會退回顯示中文說明
+                const esc = (t) => String(t || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+                const ci = img.caption_intl || {};
+                return `<div class="activity-photo-caption" data-en="${esc(ci.en || img.caption)}" data-ja="${esc(ci.ja || img.caption)}" data-de="${esc(ci.de || img.caption)}">${esc(img.caption)}</div>`;
+              })() : ''}
             </div>
           `).join('')}</div>`
           : '';
