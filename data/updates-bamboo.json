@@ -93,27 +93,57 @@
       "images": [
         {
           "src": "images/updates/bamboo-camp-0826-a1.jpg",
-          "caption": "a. 實做現場"
+          "caption": "a. 實做現場",
+          "caption_intl": {
+            "en": "a. Hands-on session",
+            "ja": "a. 実習の様子",
+            "de": "a. Praktische Arbeit vor Ort"
+          }
         },
         {
           "src": "images/updates/bamboo-camp-0826-a2.jpg",
-          "caption": "a. 實做現場"
+          "caption": "a. 實做現場",
+          "caption_intl": {
+            "en": "a. Hands-on session",
+            "ja": "a. 実習の様子",
+            "de": "a. Praktische Arbeit vor Ort"
+          }
         },
         {
           "src": "images/updates/bamboo-camp-0826-a3.jpg",
-          "caption": "a. 實做現場"
+          "caption": "a. 實做現場",
+          "caption_intl": {
+            "en": "a. Hands-on session",
+            "ja": "a. 実習の様子",
+            "de": "a. Praktische Arbeit vor Ort"
+          }
         },
         {
           "src": "images/updates/bamboo-camp-0826-b.jpg",
-          "caption": "b. 樂器音階體驗"
+          "caption": "b. 樂器音階體驗",
+          "caption_intl": {
+            "en": "b. Exploring the instrument's scale",
+            "ja": "b. 楽器の音階体験",
+            "de": "b. Tonleiter am Instrument erleben"
+          }
         },
         {
           "src": "images/updates/bamboo-camp-0826-c.jpg",
-          "caption": "c. 合奏體驗教學"
+          "caption": "c. 合奏體驗教學",
+          "caption_intl": {
+            "en": "c. Ensemble playing session",
+            "ja": "c. 合奏体験の指導",
+            "de": "c. Ensemble-Workshop"
+          }
         },
         {
           "src": "images/updates/bamboo-camp-0826-d.jpg",
-          "caption": "d. 大合照"
+          "caption": "d. 大合照",
+          "caption_intl": {
+            "en": "d. Group photo",
+            "ja": "d. 集合写真",
+            "de": "d. Gruppenfoto"
+          }
         }
       ],
       "desc_zh": "由劉宗岳老師規畫，國北教大藝設系張文德老師團隊支持，進行木柵農會暑期小竹琴、中型與大型竹樂器製作與演奏工作坊，3位國北教大藝設系同學，共有來自多所木柵區中小學19位同學參與，以5天時間完成樂器製作與合奏練習，共製作19台小竹琴(1人1台)，及拍筒琴與中音竹琴各1部，及2首曲目合奏，成果豐碩。",

@@ -1,3 +1,6 @@
+/* 英文／德文內文字型：Inter（Google Fonts，字寬正常、螢幕閱讀清楚，含德文變音字母） */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /* style.css */
 body { 
   font-family: 'Noto Sans TC', system-ui, sans-serif; 
@@ -155,29 +158,29 @@ html:lang(de) .text-justify {
   text-align: left;
 }
 
-/* ─── 英文／德文字級與字型調整 ───
-   中文字級系統（text-sub、text-h2...）是照中文閱讀習慣設計的，
-   套用到英文／德文時，因為字母本身較寬、單字較長，同樣的 px 數看起來會顯得偏大、偏粗。
-   這裡把英文／德文的字級整體調降，並改用 Arial Narrow（比預設的 Noto Sans TC 更適合拉丁字母），
-   同時把預設字距收緊一點，避免看起來鬆散笨重。 */
+/* ─── 英文／德文字型與字級 ───
+   中文字型 Noto Sans TC 的英文字母偏寬重，所以英／德文改用 Inter。
+   （之前用 Arial Narrow＋字距收緊，畫面看起來太瘦太擠，2026-11 改掉。）
+   英文單字較長，字級比中文略小一點，但行距加大，讀起來比較鬆。 */
 html:lang(en) body,
 html:lang(de) body {
-  font-family: 'Arial Narrow', Arial, 'Helvetica Neue', sans-serif;
-  letter-spacing: -0.01em;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0;
 }
+html:lang(en) p, html:lang(de) p { line-height: 1.75; }
 html:lang(en) .text-caption, html:lang(de) .text-caption { font-size: 13px; }
-html:lang(en) .text-body,    html:lang(de) .text-body    { font-size: 14px; }
-html:lang(en) .text-sub,     html:lang(de) .text-sub     { font-size: 15px; }
-html:lang(en) .text-h3,      html:lang(de) .text-h3      { font-size: 18px; }
+html:lang(en) .text-body,    html:lang(de) .text-body    { font-size: 14.5px; }
+html:lang(en) .text-sub,     html:lang(de) .text-sub     { font-size: 15.5px; }
+html:lang(en) .text-h3,      html:lang(de) .text-h3      { font-size: 19px; }
 html:lang(en) .text-h2,      html:lang(de) .text-h2      { font-size: 26px; }
 html:lang(en) .text-h1,      html:lang(de) .text-h1      { font-size: 36px; }
-html:lang(en) .text-lead,    html:lang(de) .text-lead    { font-size: 19px; }
-html:lang(en) .text-card-title,    html:lang(de) .text-card-title    { font-size: 23px; }
+html:lang(en) .text-lead,    html:lang(de) .text-lead    { font-size: 18px; }
+html:lang(en) .text-card-title,    html:lang(de) .text-card-title    { font-size: 22px; }
 html:lang(en) .text-section-title, html:lang(de) .text-section-title { font-size: 34px; }
 html:lang(en) .text-display,       html:lang(de) .text-display       { font-size: 44px; }
 
-/* 主導覽列：英文／德文用稍大一點的 20px，中文／日文維持 18.4px */
-html:lang(en) .nav-link, html:lang(de) .nav-link { font-size: 18.6px; }
+/* 主導覽列：Inter 比 Arial Narrow 寬，字級降到 16px，避免選單擠到換行 */
+html:lang(en) .nav-link, html:lang(de) .nav-link { font-size: 16px; }
 
 
 /* 手機板：頁面主標題（每頁最上方的大標題，例如「最新動態」「分享教案」「計畫主持人」）
