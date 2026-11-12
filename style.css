@@ -179,8 +179,17 @@ html:lang(en) .text-card-title,    html:lang(de) .text-card-title    { font-size
 html:lang(en) .text-section-title, html:lang(de) .text-section-title { font-size: 34px; }
 html:lang(en) .text-display,       html:lang(de) .text-display       { font-size: 44px; }
 
-/* 主導覽列：Inter 比 Arial Narrow 寬，字級降到 16px，避免選單擠到換行 */
-html:lang(en) .nav-link, html:lang(de) .nav-link { font-size: 16px; }
+/* 主導覽列（英／德文）：維持原本的 Arial Narrow 窄體字，選單項目多、德文單字長，
+   窄體字才放得下一整排；內文才用 Inter。 */
+html:lang(en) .nav-link, html:lang(de) .nav-link {
+  font-family: 'Arial Narrow', Arial, 'Helvetica Neue', sans-serif;
+  font-size: 18.6px; letter-spacing: -0.01em;
+}
+/* 選單文字一律不換行（避免「Bamboo Learning & Joy」被切成兩行） */
+.nav-link { white-space: nowrap; }
+/* 螢幕寬度不到 1280px（一般筆電）時，導覽列改用右上角的選單按鈕（漢堡選單），
+   完整的一排選單只在 1280px 以上顯示，避免德文、英文選單太長擠不下、LOGO 被壓扁。 */
+
 
 
 /* 手機板：頁面主標題（每頁最上方的大標題，例如「最新動態」「分享教案」「計畫主持人」）
@@ -198,7 +207,7 @@ html:lang(en) .nav-link, html:lang(de) .nav-link { font-size: 16px; }
   /* 導覽列 LOGO：桌機刻意讓 150px 高的 LOGO 超出 90px 高的導覽列（設計上的視覺效果），
      但手機螢幕窄，150px 的 LOGO 會佔掉將近一半畫面、蓋住下方 Hero 標題文字。
      手機板縮小到 80px，維持「LOGO 稍微超出導覽列」的效果，但不會再壓到下方內容。 */
-  .logo-img { height: 80px !important; }
+  .logo-img { height: 54px !important; }
 }
 
 /* ─── 頁首背景影片（全站共用）───
