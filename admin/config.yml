@@ -101,7 +101,18 @@ collections:
                 default: []
                 fields:
                   - { label: "圖片", name: "src", widget: "image" }
-                  - { label: "圖片說明", name: "caption", widget: "string", required: false }
+                  - { label: "圖片說明（中文）", name: "caption", widget: "string", required: false }
+                  - label: "圖片說明（英／日／德文）"
+                    hint: "點箭頭展開填寫；沒填的語言會顯示中文說明。"
+                    name: "caption_intl"
+                    widget: "object"
+                    collapsed: true
+                    summary: "{{fields.en}}"
+                    required: false
+                    fields:
+                      - { label: "英文", name: "en", widget: "string", required: false }
+                      - { label: "日文", name: "ja", widget: "string", required: false }
+                      - { label: "德文", name: "de", widget: "string", required: false }
 
       - name: "updates_wood"
         label: "木育玩具開發與推廣"
@@ -150,7 +161,18 @@ collections:
                 default: []
                 fields:
                   - { label: "圖片", name: "src", widget: "image" }
-                  - { label: "圖片說明", name: "caption", widget: "string", required: false }
+                  - { label: "圖片說明（中文）", name: "caption", widget: "string", required: false }
+                  - label: "圖片說明（英／日／德文）"
+                    hint: "點箭頭展開填寫；沒填的語言會顯示中文說明。"
+                    name: "caption_intl"
+                    widget: "object"
+                    collapsed: true
+                    summary: "{{fields.en}}"
+                    required: false
+                    fields:
+                      - { label: "英文", name: "en", widget: "string", required: false }
+                      - { label: "日文", name: "ja", widget: "string", required: false }
+                      - { label: "德文", name: "de", widget: "string", required: false }
 
       - name: "updates_bamboo"
         label: "竹育樂（2026~）"
@@ -199,7 +221,18 @@ collections:
                 default: []
                 fields:
                   - { label: "圖片", name: "src", widget: "image" }
-                  - { label: "圖片說明", name: "caption", widget: "string", required: false }
+                  - { label: "圖片說明（中文）", name: "caption", widget: "string", required: false }
+                  - label: "圖片說明（英／日／德文）"
+                    hint: "點箭頭展開填寫；沒填的語言會顯示中文說明。"
+                    name: "caption_intl"
+                    widget: "object"
+                    collapsed: true
+                    summary: "{{fields.en}}"
+                    required: false
+                    fields:
+                      - { label: "英文", name: "en", widget: "string", required: false }
+                      - { label: "日文", name: "ja", widget: "string", required: false }
+                      - { label: "德文", name: "de", widget: "string", required: false }
 
       - name: "updates_industry"
         label: "產學合作計畫成果"
@@ -248,7 +281,18 @@ collections:
                 default: []
                 fields:
                   - { label: "圖片", name: "src", widget: "image" }
-                  - { label: "圖片說明", name: "caption", widget: "string", required: false }
+                  - { label: "圖片說明（中文）", name: "caption", widget: "string", required: false }
+                  - label: "圖片說明（英／日／德文）"
+                    hint: "點箭頭展開填寫；沒填的語言會顯示中文說明。"
+                    name: "caption_intl"
+                    widget: "object"
+                    collapsed: true
+                    summary: "{{fields.en}}"
+                    required: false
+                    fields:
+                      - { label: "英文", name: "en", widget: "string", required: false }
+                      - { label: "日文", name: "ja", widget: "string", required: false }
+                      - { label: "德文", name: "de", widget: "string", required: false }
 
   - name: "director_profile"
     label: "計畫主持人（頁面內容）"
